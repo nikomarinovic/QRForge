@@ -53,6 +53,9 @@ Generating your perfect QR code is fast and intuitive:
 <p align="center">
   <img src="images/screenshot-2.png" alt="QRForge Customization Example" width="700" />
 </p>
+<p align="center">
+  <img src="images/screenshot-3.png" alt="QRForge Editor Example" width="700" />
+</p>
 
 ---
 
