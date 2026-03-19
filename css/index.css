@@ -41,7 +41,7 @@
 }
 .qr-showcase {
   position: relative;
-  width: 300px;
+  width: 500px;
   height: 340px;
 }
 .qr-showcase-glow {
@@ -92,17 +92,17 @@
 }
 .chip-1 {
   top: 12px;
-  right: -20px;
+  right: 50px;
   animation: chipFloat1 5s ease-in-out infinite;
 }
 .chip-2 {
   bottom: 80px;
-  right: -40px;
+  right: 30px;
   animation: chipFloat2 6s ease-in-out infinite;
 }
 .chip-3 {
-  bottom: 20px;
-  left: -30px;
+  bottom: 120px;
+  left: 30px;
   animation: chipFloat3 4.5s ease-in-out infinite;
 }
 @keyframes chipFloat1 {

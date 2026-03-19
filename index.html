@@ -16,13 +16,12 @@
     <div class="nav-inner">
       <a href="index.html" class="nav-logo" aria-label="QRForge home">
         <div class="nav-logo-mark">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-            <rect x="1" y="1" width="6" height="6" rx="1.5" fill="white" opacity="0.9"/>
-            <rect x="11" y="1" width="6" height="6" rx="1.5" fill="white" opacity="0.9"/>
-            <rect x="1" y="11" width="6" height="6" rx="1.5" fill="white" opacity="0.9"/>
-            <rect x="11" y="11" width="2.5" height="2.5" rx="0.5" fill="white" opacity="0.7"/>
-            <rect x="14.5" y="11" width="2.5" height="2.5" rx="0.5" fill="white" opacity="0.7"/>
-            <rect x="11" y="14.5" width="2.5" height="2.5" rx="0.5" fill="white" opacity="0.7"/>
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 256" width="256" height="256">
+            <defs><clipPath id="bgc"><rect width="256" height="256" rx="51.2"/></clipPath></defs>
+            <rect width="256" height="256" rx="51.2" fill="#1e3a8a"/>
+            
+            <g opacity="1" transform="translate(128,128) rotate(0)" color="#ffffff"><svg x="-99.84" y="-99.84" width="199.68" height="199.68" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M4 5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -4" /> <path d="M7 17l0 .01" /> <path d="M14 5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -4" /> <path d="M7 7l0 .01" /> <path d="M4 15a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -4" /> <path d="M17 7l0 .01" /> <path d="M14 14l3 0" /> <path d="M20 14l0 .01" /> <path d="M14 14l0 3" /> <path d="M14 20l3 0" /> <path d="M17 17l3 0" /> <path d="M20 17l0 3" /> </svg></g>
+            
           </svg>
         </div>
         <span class="nav-logo-text">QRForge</span>
@@ -41,7 +40,7 @@
       <div class="hero-inner">
         <div class="hero-content">
           <div class="fade-in-up delay-1">
-            <span class="badge badge-blue">v1.0 — Now Available</span>
+            <span class="badge badge-blue">v1.0.0 — Now Available</span>
           </div>
           <h1 class="display-xl fade-in-up delay-2">
             <span class="gradient-text">QR Codes</span><br/>designed<br/>to stand out.
@@ -58,26 +57,47 @@
           </div>
         </div>
         <div class="hero-visual fade-in-up delay-3">
-          <div class="qr-showcase">
-            <div class="qr-showcase-glow"></div>
-            <div class="qr-card glass-strong">
-              <canvas id="heroQr" width="220" height="220"></canvas>
-              <div class="qr-card-label">
-                <span class="caption text-muted">Live Preview</span>
-              </div>
-            </div>
-            <!-- Floating style chips -->
-            <div class="style-chip chip-1 glass">
-              <span class="caption">Gradient Dots</span>
-            </div>
-            <div class="style-chip chip-2 glass">
-              <span class="caption">Logo Embed</span>
-            </div>
-            <div class="style-chip chip-3 glass">
-              <span class="caption">Custom Eyes</span>
-            </div>
-          </div>
-        </div>
+  <div class="qr-showcase">
+    
+    <!-- QR Glow Background -->
+    <div class="qr-showcase-glow"></div>
+    
+    <!-- QR Card with Embedded SVG QR -->
+    <div class="qr-card glass-strong">
+      <svg id="heroQrSvg" viewBox="0 0 256 256" width="220" height="220">
+        <defs>
+          <clipPath id="bgc">
+            <rect width="256" height="256" rx="51.2"/>
+          </clipPath>
+        </defs>
+        <rect width="256" height="256" rx="51.2" fill="#1e3a8a"/>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 256" width="256" height="256">
+          <defs><clipPath id="bgc"><rect width="256" height="256" rx="51.2"/></clipPath></defs>
+          <rect width="256" height="256" rx="51.2" fill="#1e3a8a"/>
+          
+          <g opacity="1" transform="translate(128,128) rotate(0)" color="#ffffff"><svg x="-99.84" y="-99.84" width="199.68" height="199.68" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M4 5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -4" /> <path d="M7 17l0 .01" /> <path d="M14 5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -4" /> <path d="M7 7l0 .01" /> <path d="M4 15a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -4" /> <path d="M17 7l0 .01" /> <path d="M14 14l3 0" /> <path d="M20 14l0 .01" /> <path d="M14 14l0 3" /> <path d="M14 20l3 0" /> <path d="M17 17l3 0" /> <path d="M20 17l0 3" /> </svg></g>
+          
+        </svg>
+      </svg>
+
+      <!-- QR Card Label -->
+      <div class="qr-card-label">
+        <span class="caption text-muted">Live Preview</span>
+      </div>
+    </div>
+    
+    <!-- Floating Style Chips -->
+    <div class="style-chip chip-1 glass">
+      <span class="caption">Gradient Dots</span>
+    </div>
+    <div class="style-chip chip-2 glass">
+      <span class="caption">Logo Embed</span>
+    </div>
+    <div class="style-chip chip-3 glass">
+      <span class="caption">Custom Eyes</span>
+    </div>
+  </div>
+</div>
       </div>
 
       <!-- Scroll hint -->
@@ -95,7 +115,7 @@
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
-          <span class="stat-num gradient-text">PNG + SVG</span>
+          <span class="stat-num gradient-text">ALL</span>
           <span class="stat-label caption text-muted">Export Formats</span>
         </div>
         <div class="stat-divider"></div>
@@ -224,18 +244,17 @@
       <div>
         <div class="flex items-center gap-2" style="gap:10px">
           <div class="nav-logo-mark" style="width:24px;height:24px;">
-            <svg width="13" height="13" viewBox="0 0 18 18" fill="none">
-              <rect x="1" y="1" width="6" height="6" rx="1.5" fill="white" opacity="0.9"/>
-              <rect x="11" y="1" width="6" height="6" rx="1.5" fill="white" opacity="0.9"/>
-              <rect x="1" y="11" width="6" height="6" rx="1.5" fill="white" opacity="0.9"/>
-              <rect x="11" y="11" width="2.5" height="2.5" rx="0.5" fill="white" opacity="0.7"/>
-              <rect x="14.5" y="11" width="2.5" height="2.5" rx="0.5" fill="white" opacity="0.7"/>
-              <rect x="11" y="14.5" width="2.5" height="2.5" rx="0.5" fill="white" opacity="0.7"/>
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 256" width="256" height="256">
+              <defs><clipPath id="bgc"><rect width="256" height="256" rx="51.2"/></clipPath></defs>
+              <rect width="256" height="256" rx="51.2" fill="#1e3a8a"/>
+              
+              <g opacity="1" transform="translate(128,128) rotate(0)" color="#ffffff"><svg x="-99.84" y="-99.84" width="199.68" height="199.68" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M4 5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -4" /> <path d="M7 17l0 .01" /> <path d="M14 5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -4" /> <path d="M7 7l0 .01" /> <path d="M4 15a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1l0 -4" /> <path d="M17 7l0 .01" /> <path d="M14 14l3 0" /> <path d="M20 14l0 .01" /> <path d="M14 14l0 3" /> <path d="M14 20l3 0" /> <path d="M17 17l3 0" /> <path d="M20 17l0 3" /> </svg></g>
+              
             </svg>
           </div>
           <span style="font-weight:600;font-size:0.9rem;color:var(--text-primary)">QRForge</span>
         </div>
-        <p class="footer-copy mt-2">&copy; 2025 QRForge. All rights reserved. Open source, client-side only.</p>
+        <p class="footer-copy mt-2">&copy; 2026 QRForge. All rights reserved. Open source, client-side only.</p>
       </div>
       <div class="flex items-center gap-4" style="gap:12px">
         <a href="editor.html" class="footer-copy" style="color:var(--text-secondary)">Editor</a>
