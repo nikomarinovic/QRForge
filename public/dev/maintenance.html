@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QRForge — Maintenance</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: var(--surface-0);
+      overflow: hidden;
+      font-family: var(--font-sans, 'DM Sans', sans-serif);
+    }
+
+    /* Animated grid background */
+    .maint-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(59,130,212,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59,130,212,0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+      animation: gridDrift 20s linear infinite;
+    }
+    @keyframes gridDrift {
+      from { background-position: 0 0; }
+      to   { background-position: 48px 48px; }
+    }
+
+    .maint-glow {
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(ellipse, rgba(26,63,117,0.25) 0%, transparent 70%);
+      pointer-events: none;
+      animation: glowPulse 4s ease-in-out infinite alternate;
+      z-index: 0;
+    }
+    @keyframes glowPulse {
+      from { transform: translate(-50%,-50%) scale(0.9); opacity: 0.7; }
+      to   { transform: translate(-50%,-50%) scale(1.1); opacity: 1; }
+    }
+
+    .maint-card {
+      position: relative;
+      z-index: 2;
+      background: rgba(26,63,117,0.12);
+      backdrop-filter: blur(24px);
+      border: 1px solid rgba(193,232,255,0.1);
+      border-radius: 24px;
+      padding: 3rem 3.5rem;
+      max-width: 480px;
+      width: 90%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+    }
+
+    .maint-icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, #2563b0, #1a3f75);
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 24px rgba(59,130,212,0.35);
+      animation: iconBob 3s ease-in-out infinite;
+    }
+    @keyframes iconBob {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-6px); }
+    }
+
+    .maint-title {
+      font-size: 1.875rem;
+      font-weight: 300;
+      letter-spacing: -0.03em;
+      color: #eef4ff;
+    }
+    .maint-sub {
+      font-size: 1rem;
+      color: #8faac8;
+      line-height: 1.6;
+    }
+
+    /* Animated dots */
+    .loading-dots {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .dot {
+      width: 6px;
+      height: 6px;
+      background: #7bc8f0;
+      border-radius: 50%;
+      animation: dotBounce 1.4s ease-in-out infinite;
+    }
+    .dot:nth-child(2) { animation-delay: 0.2s; }
+    .dot:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes dotBounce {
+      0%,80%,100% { transform: scale(0.6); opacity: 0.4; }
+      40%          { transform: scale(1); opacity: 1; }
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8125rem;
+      color: #4a6080;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: #8faac8; }
+  </style>
+</head>
+<body>
+  <div class="maint-bg" aria-hidden="true"></div>
+  <div class="maint-glow" aria-hidden="true"></div>
+
+  <div class="maint-card">
+    <div class="maint-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 256" width="256" height="256">
+        <defs><clipPath id="bgc"><rect width="256" height="256" rx="51.2"/></clipPath></defs>
+        <rect width="256" height="256" rx="51.2" fill="#1e3a8a"/>
+        
+        <g opacity="1" transform="translate(128,128) rotate(0)"><svg x="-72.96" y="-72.96" width="145.92" height="145.92" viewBox="0 0 18 18">
+                  <rect x="1" y="1" width="6" height="6" rx="1.5" fill="white" opacity="0.9"/>
+                  <rect x="11" y="1" width="6" height="6" rx="1.5" fill="white" opacity="0.9"/>
+                  <rect x="1" y="11" width="6" height="6" rx="1.5" fill="white" opacity="0.9"/>
+                  <rect x="11" y="11" width="2.5" height="2.5" rx="0.5" fill="white" opacity="0.7"/>
+                  <rect x="14.5" y="11" width="2.5" height="2.5" rx="0.5" fill="white" opacity="0.7"/>
+                  <rect x="11" y="14.5" width="2.5" height="2.5" rx="0.5" fill="white" opacity="0.7"/>
+                </svg></g>
+        
+      </svg>
+    </div>
+    <h1 class="maint-title">We'll be back soon.</h1>
+    <p class="maint-sub">QRForge is undergoing scheduled maintenance. We're upgrading the system — back shortly.</p>
+    <div class="loading-dots" aria-label="Loading">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  </div>
+</body>
+</html>

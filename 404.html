@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QRForge — 404</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #00001e;
+      color: var(--text-primary);
+      font-family: var(--font-sans, 'DM Sans', sans-serif);
+      min-height: 100vh;
+      overflow: hidden;
+      cursor: none;
+    }
+
+    /* Custom cursor */
+    .cursor {
+      position: fixed;
+      width: 14px;
+      height: 14px;
+      border: 1.5px solid rgba(193,232,255,0.7);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 1000;
+      transform: translate(-50%, -50%);
+      transition: width 0.2s, height 0.2s, border-color 0.2s;
+    }
+    .cursor-trail {
+      position: fixed;
+      width: 4px;
+      height: 4px;
+      background: rgba(59,130,212,0.6);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 999;
+      transform: translate(-50%, -50%);
+      transition: left 0.12s ease-out, top 0.12s ease-out;
+    }
+
+    /* Noise overlay */
+    .noise {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      animation: noiseShift 0.08s steps(1) infinite;
+    }
+    @keyframes noiseShift {
+      0%  { transform: translate(0,0); }
+      25% { transform: translate(-2px,1px); }
+      50% { transform: translate(1px,-1px); }
+      75% { transform: translate(-1px,2px); }
+    }
+
+    /* Scanlines */
+    .scanlines {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,30,0.15) 2px,
+        rgba(0,0,30,0.15) 4px
+      );
+    }
+
+    /* Main */
+    .page-404 {
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      gap: 2rem;
+    }
+
+    /* Glitch QR */
+    .glitch-qr-wrap {
+      position: relative;
+      width: 200px;
+      height: 200px;
+    }
+    .glitch-qr-wrap canvas {
+      position: absolute;
+      inset: 0;
+      border-radius: 12px;
+    }
+    .qr-layer-0 { z-index: 3; }
+    .qr-layer-1 {
+      z-index: 2;
+      opacity: 0.5;
+      mix-blend-mode: screen;
+      animation: glitchLayer1 2.4s steps(1) infinite;
+    }
+    .qr-layer-2 {
+      z-index: 1;
+      opacity: 0.4;
+      mix-blend-mode: screen;
+      animation: glitchLayer2 3.1s steps(1) infinite;
+    }
+    @keyframes glitchLayer1 {
+      0%,90%,100% { transform: translate(0,0); clip-path: none; }
+      92%          { transform: translate(-4px, 2px); clip-path: polygon(0 20%, 100% 20%, 100% 40%, 0 40%); }
+      94%          { transform: translate(4px,-2px); clip-path: polygon(0 60%, 100% 60%, 100% 80%, 0 80%); }
+      96%          { transform: translate(-2px, 3px); clip-path: none; }
+    }
+    @keyframes glitchLayer2 {
+      0%,85%,100% { transform: translate(0,0); clip-path: none; }
+      87%          { transform: translate(6px,-3px); clip-path: polygon(0 10%, 100% 10%, 100% 30%, 0 30%); }
+      90%          { transform: translate(-3px, 4px); clip-path: polygon(0 70%, 100% 70%, 100% 90%, 0 90%); }
+    }
+
+    /* Glitch text */
+    .glitch-num {
+      font-size: clamp(5rem, 18vw, 12rem);
+      font-weight: 300;
+      letter-spacing: -0.06em;
+      line-height: 1;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(193,232,255,0.5);
+      position: relative;
+      user-select: none;
+    }
+    .glitch-num::before,
+    .glitch-num::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+    }
+    .glitch-num::before {
+      color: rgba(59,130,212,0.7);
+      -webkit-text-stroke: 0;
+      animation: glitchBefore 3.5s steps(1) infinite;
+      clip-path: polygon(0 35%, 100% 35%, 100% 55%, 0 55%);
+    }
+    .glitch-num::after {
+      color: rgba(193,232,255,0.6);
+      -webkit-text-stroke: 0;
+      animation: glitchAfter 4.2s steps(1) infinite;
+      clip-path: polygon(0 65%, 100% 65%, 100% 85%, 0 85%);
+    }
+    @keyframes glitchBefore {
+      0%,88%,100% { transform: translate(0,0); }
+      90%          { transform: translate(-6px, 2px); }
+      92%          { transform: translate(4px,-3px); }
+      94%          { transform: translate(-2px, 1px); }
+    }
+    @keyframes glitchAfter {
+      0%,82%,100% { transform: translate(0,0); }
+      84%          { transform: translate(5px,-4px); }
+      87%          { transform: translate(-4px, 2px); }
+      90%          { transform: translate(2px,-1px); }
+    }
+
+    .text-section {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .err-title {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--text-primary, #eef4ff);
+      letter-spacing: -0.02em;
+    }
+    .err-sub {
+      font-size: 0.9375rem;
+      color: var(--text-secondary, #8faac8);
+      max-width: 340px;
+      line-height: 1.6;
+    }
+
+    /* Animated line */
+    .err-line {
+      width: 40px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(193,232,255,0.4), transparent);
+      animation: linePulse 2s ease-in-out infinite;
+    }
+    @keyframes linePulse {
+      0%,100% { opacity: 0.4; width: 40px; }
+      50%      { opacity: 1; width: 80px; }
+    }
+
+    /* Scattered background pixels */
+    .bg-pixel {
+      position: fixed;
+      pointer-events: none;
+      background: var(--accent-dim, #7bc8f0);
+      border-radius: 1px;
+      z-index: 1;
+      animation: pixelFloat linear infinite;
+    }
+    @keyframes pixelFloat {
+      from { transform: translateY(0) rotate(0deg); opacity: 0; }
+      10%  { opacity: 1; }
+      90%  { opacity: 0.6; }
+      to   { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+    }
+
+    .home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      border-radius: 9999px;
+      background: linear-gradient(135deg, #2563b0, #1a3f75);
+      color: #e8f6ff;
+      font-weight: 500;
+      font-size: 0.9375rem;
+      text-decoration: none;
+      box-shadow: 0 0 24px rgba(59,130,212,0.3);
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s;
+    }
+    .home-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 40px rgba(59,130,212,0.5);
+      color: #e8f6ff;
+    }
+
+    /* Horizontal glitch bar */
+    .glitch-bar {
+      position: fixed;
+      left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent 10%, rgba(193,232,255,0.6) 50%, transparent 90%);
+      animation: barSweep 5s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 3;
+    }
+    @keyframes barSweep {
+      0%   { top: -4px; opacity: 0; }
+      2%   { opacity: 1; }
+      98%  { opacity: 0.8; }
+      100% { top: 100vh; opacity: 0; }
+    }
+    .glitch-bar:nth-child(2) { animation-delay: 1.8s; animation-duration: 6.5s; }
+    .glitch-bar:nth-child(3) { animation-delay: 3.5s; animation-duration: 4s; }
+  </style>
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="scanlines"></div>
+  <div class="glitch-bar"></div>
+  <div class="glitch-bar"></div>
+  <div class="glitch-bar"></div>
+  <div class="cursor" id="cursor"></div>
+
+  <main class="page-404">
+    <div class="glitch-qr-wrap" aria-hidden="true">
+      <canvas class="qr-layer-2" id="qrL2" width="200" height="200"></canvas>
+      <canvas class="qr-layer-1" id="qrL1" width="200" height="200"></canvas>
+      <canvas class="qr-layer-0" id="qrL0" width="200" height="200"></canvas>
+    </div>
+
+    <div class="glitch-num" data-text="404" aria-label="404">404</div>
+
+    <div class="err-line"></div>
+
+    <div class="text-section">
+      <p class="err-title">Signal lost. Page not found.</p>
+      <p class="err-sub">The QR you scanned leads nowhere. Let us guide you back to a real destination.</p>
+    </div>
+
+    <a href="index.html" class="home-link">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M11 7H3M6 4L3 7l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back to QRForge
+    </a>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script>
+    // Custom cursor
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top  = e.clientY + 'px';
+    });
+
+    // Mouse parallax on glitch num
+    const glitchNum = document.querySelector('.glitch-num');
+    document.addEventListener('mousemove', (e) => {
+      const cx = window.innerWidth / 2;
+      const cy = window.innerHeight / 2;
+      const dx = (e.clientX - cx) / cx * 8;
+      const dy = (e.clientY - cy) / cy * 4;
+      glitchNum.style.transform = `translate(${dx}px, ${dy}px)`;
+    });
+
+    // Spawn background pixels
+    function spawnPixel() {
+      const px = document.createElement('div');
+      px.className = 'bg-pixel';
+      const size = Math.random() * 3 + 1;
+      px.style.cssText = `
+        width:${size}px; height:${size}px;
+        left:${Math.random()*100}vw;
+        bottom:0;
+        opacity:0;
+        animation-duration:${6 + Math.random()*8}s;
+        animation-delay:${Math.random()*2}s;
+      `;
+      document.body.appendChild(px);
+      setTimeout(() => px.remove(), 16000);
+    }
+    setInterval(spawnPixel, 400);
+
+    // Draw glitchy QR layers
+    (function drawQRLayers() {
+      const layers = [
+        { id: 'qrL0', color: '#c1e8ff', bg: '#00001e', style: 'rounded' },
+        { id: 'qrL1', color: '#3b82d4', bg: 'transparent', style: 'circle' },
+        { id: 'qrL2', color: '#1a3f75', bg: 'transparent', style: 'square' },
+      ];
+
+      const tmp = document.createElement('div');
+      tmp.style.cssText = 'position:absolute;visibility:hidden;top:-99999px;';
+      document.body.appendChild(tmp);
+
+      let matrix = null;
+      try {
+        const qr = new QRCode(tmp, { text: 'ERROR 404 — NOT FOUND', width: 200, height: 200, correctLevel: QRCode.CorrectLevel.H });
+        if (qr._oQRCode) matrix = qr._oQRCode.modules;
+      } catch(e) {}
+      document.body.removeChild(tmp);
+      if (!matrix) return;
+
+      layers.forEach(({ id, color, bg, style }) => {
+        const cv  = document.getElementById(id);
+        const ctx = cv.getContext('2d');
+        const size = 200;
+        const cells = matrix.length;
+        const margin = 4;
+        const cellSize = (size - margin*2) / cells;
+        const s = cellSize * 0.8;
+        const off = (cellSize - s) / 2;
+
+        ctx.clearRect(0, 0, size, size);
+        if (bg !== 'transparent') { ctx.fillStyle = bg; ctx.fillRect(0, 0, size, size); }
+
+        const eyeZones = [{r:0,c:0},{r:0,c:cells-7},{r:cells-7,c:0}];
+        function isEye(r, c) { return eyeZones.some((e) => r>=e.r && r<e.r+7 && c>=e.c && c<e.c+7); }
+
+        ctx.fillStyle = color;
+        for (let r = 0; r < cells; r++) {
+          for (let c = 0; c < cells; c++) {
+            if (!matrix[r][c] || isEye(r,c)) continue;
+            const x = margin + c*cellSize + off;
+            const y = margin + r*cellSize + off;
+            ctx.fillStyle = color;
+            if (style === 'circle') {
+              ctx.beginPath(); ctx.arc(x+s/2, y+s/2, s/2, 0, Math.PI*2); ctx.fill();
+            } else if (style === 'rounded') {
+              const rad = s*0.3;
+              ctx.beginPath();
+              ctx.moveTo(x+rad,y); ctx.lineTo(x+s-rad,y);
+              ctx.quadraticCurveTo(x+s,y,x+s,y+rad);
+              ctx.lineTo(x+s,y+s-rad); ctx.quadraticCurveTo(x+s,y+s,x+s-rad,y+s);
+              ctx.lineTo(x+rad,y+s); ctx.quadraticCurveTo(x,y+s,x,y+s-rad);
+              ctx.lineTo(x,y+rad); ctx.quadraticCurveTo(x,y,x+rad,y);
+              ctx.closePath(); ctx.fill();
+            } else {
+              ctx.fillRect(x, y, s, s);
+            }
+          }
+        }
+        // Eyes
+        eyeZones.forEach(({r,c}) => {
+          const ex = margin + c*cellSize, ey = margin + r*cellSize;
+          const es = cellSize*7, gap = cellSize, inner = cellSize*3;
+          const io = (es-inner)/2;
+          ctx.fillStyle = color;
+          ctx.fillRect(ex, ey, es, es);
+          ctx.fillStyle = bg !== 'transparent' ? bg : 'rgba(0,0,0,0)';
+          if (bg === 'transparent') ctx.globalCompositeOperation = 'destination-out';
+          ctx.fillRect(ex+gap, ey+gap, es-gap*2, es-gap*2);
+          ctx.globalCompositeOperation = 'source-over';
+          ctx.fillStyle = color;
+          ctx.fillRect(ex+io, ey+io, inner, inner);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

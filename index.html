@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QRForge — Precision QR Code Generator</title>
+  <meta name="description" content="Design beautiful, customizable QR codes with gradients, logos, and unique styles. Professional-grade, free, client-side." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+  <div class="bg-mesh" aria-hidden="true"></div>
+
+  <!-- Nav -->
+  <nav class="nav" role="navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="QRForge home">
+        <div class="nav-logo-mark">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <rect x="1" y="1" width="6" height="6" rx="1.5" fill="white" opacity="0.9"/>
+            <rect x="11" y="1" width="6" height="6" rx="1.5" fill="white" opacity="0.9"/>
+            <rect x="1" y="11" width="6" height="6" rx="1.5" fill="white" opacity="0.9"/>
+            <rect x="11" y="11" width="2.5" height="2.5" rx="0.5" fill="white" opacity="0.7"/>
+            <rect x="14.5" y="11" width="2.5" height="2.5" rx="0.5" fill="white" opacity="0.7"/>
+            <rect x="11" y="14.5" width="2.5" height="2.5" rx="0.5" fill="white" opacity="0.7"/>
+          </svg>
+        </div>
+        <span class="nav-logo-text">QRForge</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="editor.html" class="btn btn-primary btn-sm">Launch Editor</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-nav">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="fade-in-up delay-1">
+            <span class="badge badge-blue">v1.0 — Now Available</span>
+          </div>
+          <h1 class="display-xl fade-in-up delay-2">
+            <span class="gradient-text">QR Codes</span><br/>designed<br/>to stand out.
+          </h1>
+          <p class="body-lg text-secondary fade-in-up delay-3" style="max-width:520px; margin-top: var(--space-6);">
+            Generate, customize, and export pixel-perfect QR codes with gradient fills, logo embedding, and expressive dot styles. No account needed.
+          </p>
+          <div class="hero-actions fade-in-up delay-4">
+            <a href="editor.html" class="btn btn-primary btn-lg">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 3.5v11M3.5 9h11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              Start Creating
+            </a>
+            <a href="#features" class="btn btn-ghost btn-lg">See Features</a>
+          </div>
+        </div>
+        <div class="hero-visual fade-in-up delay-3">
+          <div class="qr-showcase">
+            <div class="qr-showcase-glow"></div>
+            <div class="qr-card glass-strong">
+              <canvas id="heroQr" width="220" height="220"></canvas>
+              <div class="qr-card-label">
+                <span class="caption text-muted">Live Preview</span>
+              </div>
+            </div>
+            <!-- Floating style chips -->
+            <div class="style-chip chip-1 glass">
+              <span class="caption">Gradient Dots</span>
+            </div>
+            <div class="style-chip chip-2 glass">
+              <span class="caption">Logo Embed</span>
+            </div>
+            <div class="style-chip chip-3 glass">
+              <span class="caption">Custom Eyes</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll hint -->
+      <div class="scroll-hint fade-in-up delay-5">
+        <div class="scroll-dot"></div>
+      </div>
+    </section>
+
+    <!-- Stats strip -->
+    <section class="stats-strip fade-in-up delay-4">
+      <div class="stats-inner">
+        <div class="stat-item">
+          <span class="stat-num gradient-text">4</span>
+          <span class="stat-label caption text-muted">Dot Styles</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num gradient-text">PNG + SVG</span>
+          <span class="stat-label caption text-muted">Export Formats</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num gradient-text">100%</span>
+          <span class="stat-label caption text-muted">Client-Side</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num gradient-text">4K</span>
+          <span class="stat-label caption text-muted">Hi-Res Export</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+      <div class="features-inner">
+        <div class="section-header text-center">
+          <span class="badge badge-blue fade-in-up">Capabilities</span>
+          <h2 class="display-md fade-in-up delay-1" style="margin-top: var(--space-4);">
+            Everything you need<br/>to make it yours.
+          </h2>
+          <p class="body-lg text-secondary fade-in-up delay-2" style="margin-top: var(--space-4); max-width: 480px; margin-left:auto; margin-right:auto;">
+            A complete design toolkit for QR codes, packed into a fast, privacy-first browser app.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card glass scroll-reveal">
+            <div class="feature-icon">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <circle cx="11" cy="11" r="9" stroke="var(--accent-dim)" stroke-width="1.5"/>
+                <path d="M7 11h8M11 7v8" stroke="var(--accent-dim)" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="heading-sm">Live Preview</h3>
+            <p class="body-sm text-secondary mt-2">Every change reflects instantly with smooth animated transitions.</p>
+          </div>
+          <div class="feature-card glass scroll-reveal">
+            <div class="feature-icon">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <defs>
+                  <linearGradient id="gi1" x1="0" y1="0" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="var(--accent-dim)"/>
+                    <stop offset="1" stop-color="var(--blue-400)"/>
+                  </linearGradient>
+                </defs>
+                <rect x="2" y="2" width="8" height="8" rx="2" fill="url(#gi1)" opacity="0.8"/>
+                <rect x="12" y="2" width="8" height="8" rx="2" fill="url(#gi1)" opacity="0.6"/>
+                <rect x="2" y="12" width="8" height="8" rx="2" fill="url(#gi1)" opacity="0.6"/>
+                <rect x="12" y="12" width="8" height="8" rx="2" fill="url(#gi1)" opacity="0.4"/>
+              </svg>
+            </div>
+            <h3 class="heading-sm">Gradient QR Codes</h3>
+            <p class="body-sm text-secondary mt-2">Apply two-color gradients across dots or the entire code.</p>
+          </div>
+          <div class="feature-card glass scroll-reveal">
+            <div class="feature-icon">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <circle cx="11" cy="8" r="4" stroke="var(--accent-dim)" stroke-width="1.5"/>
+                <path d="M3 20c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="var(--accent-dim)" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="heading-sm">Logo Embedding</h3>
+            <p class="body-sm text-secondary mt-2">Upload your brand mark and it sits cleanly at the center.</p>
+          </div>
+          <div class="feature-card glass scroll-reveal">
+            <div class="feature-icon">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <rect x="2" y="2" width="18" height="18" rx="3" stroke="var(--accent-dim)" stroke-width="1.5"/>
+                <path d="M2 9h18M9 2v18" stroke="var(--accent-dim)" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="heading-sm">Dot Styles</h3>
+            <p class="body-sm text-secondary mt-2">Square, circle, rounded, and classy diamond — pick your pattern.</p>
+          </div>
+          <div class="feature-card glass scroll-reveal">
+            <div class="feature-icon">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <path d="M4 17l4-4 3 3 5-6 3 4" stroke="var(--accent-dim)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="2" y="2" width="18" height="18" rx="3" stroke="var(--accent-dim)" stroke-width="1.5" stroke-dasharray="3 2"/>
+              </svg>
+            </div>
+            <h3 class="heading-sm">High-Res Export</h3>
+            <p class="body-sm text-secondary mt-2">Download crisp PNG at up to 4× scale, or lossless SVG.</p>
+          </div>
+          <div class="feature-card glass scroll-reveal">
+            <div class="feature-icon">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <path d="M11 2v4M11 16v4M2 11h4M16 11h4M4.9 4.9l2.8 2.8M14.3 14.3l2.8 2.8M4.9 17.1l2.8-2.8M14.3 7.7l2.8-2.8" stroke="var(--accent-dim)" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="heading-sm">Error Correction</h3>
+            <p class="body-sm text-secondary mt-2">Choose L/M/Q/H levels. Higher levels let logos sit cleanly inside.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-section">
+      <div class="cta-inner glass-strong scroll-reveal">
+        <div class="cta-glow"></div>
+        <div class="cta-content">
+          <h2 class="display-md">Ready to forge<br/><span class="gradient-text">your first code?</span></h2>
+          <p class="body-lg text-secondary" style="margin-top:var(--space-4); max-width:400px;">
+            Open the editor, type your link, and start designing. No sign-up, no tracking, no limits.
+          </p>
+          <a href="editor.html" class="btn btn-primary btn-lg" style="margin-top:var(--space-8);">
+            Open the Editor
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <div class="cta-visual" aria-hidden="true">
+          <canvas id="ctaQr" width="160" height="160"></canvas>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <div class="flex items-center gap-2" style="gap:10px">
+          <div class="nav-logo-mark" style="width:24px;height:24px;">
+            <svg width="13" height="13" viewBox="0 0 18 18" fill="none">
+              <rect x="1" y="1" width="6" height="6" rx="1.5" fill="white" opacity="0.9"/>
+              <rect x="11" y="1" width="6" height="6" rx="1.5" fill="white" opacity="0.9"/>
+              <rect x="1" y="11" width="6" height="6" rx="1.5" fill="white" opacity="0.9"/>
+              <rect x="11" y="11" width="2.5" height="2.5" rx="0.5" fill="white" opacity="0.7"/>
+              <rect x="14.5" y="11" width="2.5" height="2.5" rx="0.5" fill="white" opacity="0.7"/>
+              <rect x="11" y="14.5" width="2.5" height="2.5" rx="0.5" fill="white" opacity="0.7"/>
+            </svg>
+          </div>
+          <span style="font-weight:600;font-size:0.9rem;color:var(--text-primary)">QRForge</span>
+        </div>
+        <p class="footer-copy mt-2">&copy; 2025 QRForge. All rights reserved. Open source, client-side only.</p>
+      </div>
+      <div class="flex items-center gap-4" style="gap:12px">
+        <a href="editor.html" class="footer-copy" style="color:var(--text-secondary)">Editor</a>
+        <a href="gallery.html" class="footer-copy" style="color:var(--text-secondary)">Gallery</a>
+        <a href="https://github.com/nikomarinovic" target="_blank" rel="noopener" class="footer-github">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+          </svg>
+          nikomarinovic
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>

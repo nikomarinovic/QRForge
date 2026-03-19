@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QRForge — Coming Soon</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: var(--surface-0);
+      overflow: hidden;
+      font-family: var(--font-sans, 'DM Sans', sans-serif);
+    }
+    .dev-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background:
+        radial-gradient(ellipse at 20% 80%, rgba(45,74,80,0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(26,63,117,0.18) 0%, transparent 50%);
+    }
+    .dev-card {
+      position: relative;
+      z-index: 2;
+      background: rgba(26,63,117,0.1);
+      backdrop-filter: blur(24px);
+      border: 1px solid rgba(193,232,255,0.1);
+      border-radius: 24px;
+      padding: 3rem 3.5rem;
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+    }
+    .dev-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(193,232,255,0.08);
+      color: #7bc8f0;
+      border: 1px solid rgba(193,232,255,0.15);
+    }
+    .dev-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #2d4a50, #1a3f75);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: devIconPulse 3s ease-in-out infinite;
+    }
+    @keyframes devIconPulse {
+      0%,100% { box-shadow: 0 0 0 0 rgba(45,74,80,0.4); }
+      50%      { box-shadow: 0 0 0 12px rgba(45,74,80,0); }
+    }
+    .dev-title {
+      font-size: 1.75rem;
+      font-weight: 300;
+      letter-spacing: -0.03em;
+      color: #eef4ff;
+    }
+    .dev-sub {
+      font-size: 0.9375rem;
+      color: #8faac8;
+      line-height: 1.65;
+      max-width: 340px;
+    }
+    /* Progress bar */
+    .progress-wrap {
+      width: 100%;
+      height: 3px;
+      background: rgba(193,232,255,0.08);
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+    .progress-bar {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, #1a3f75, #c1e8ff);
+      border-radius: 9999px;
+      animation: progressFill 2.5s var(--ease-out, cubic-bezier(0.16,1,0.3,1)) forwards;
+    }
+    @keyframes progressFill {
+      from { width: 0; }
+      to   { width: 65%; }
+    }
+    .progress-label {
+      font-size: 0.75rem;
+      color: #4a6080;
+      letter-spacing: 0.04em;
+      margin-top: 6px;
+      align-self: flex-start;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 22px;
+      border-radius: 9999px;
+      background: transparent;
+      border: 1px solid rgba(193,232,255,0.15);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #8faac8;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+      margin-top: 0.5rem;
+    }
+    .back-link:hover { border-color: rgba(193,232,255,0.35); color: #eef4ff; }
+  </style>
+</head>
+<body>
+  <div class="dev-bg" aria-hidden="true"></div>
+
+  <div class="dev-card">
+    <span class="dev-badge">
+      <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>
+      In Development
+    </span>
+    <div class="dev-icon">
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+        <path d="M7 9l-4 4 4 4M19 9l4 4-4 4M14 5l-2 16" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <h1 class="dev-title">Feature in progress.</h1>
+    <p class="dev-sub">This section of QRForge is actively being built. Check back soon for an update.</p>
+    <div style="width:100%;">
+      <div class="progress-wrap">
+        <div class="progress-bar"></div>
+      </div>
+      <div class="progress-label">65% complete</div>
+    </div>
+    <a href="../../index.html" class="back-link">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M8 6H2M4 3L1 6l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back to QRForge
+    </a>
+  </div>
+</body>
+</html>
