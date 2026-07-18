@@ -14,23 +14,30 @@
       justify-content: center;
       background: var(--surface-0);
       overflow: hidden;
-      font-family: var(--font-sans, 'DM Sans', sans-serif);
     }
     .dev-bg {
       position: fixed;
       inset: 0;
       z-index: 0;
+      background-image:
+        linear-gradient(rgba(127,217,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(127,217,255,0.05) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    .dev-bg::after {
+      content: '';
+      position: absolute; inset: 0;
       background:
-        radial-gradient(ellipse at 20% 80%, rgba(45,74,80,0.15) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 20%, rgba(26,63,117,0.18) 0%, transparent 50%);
+        radial-gradient(ellipse at 20% 80%, rgba(28,70,163,0.20) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(44,92,214,0.20) 0%, transparent 50%);
     }
     .dev-card {
       position: relative;
       z-index: 2;
-      background: rgba(26,63,117,0.1);
+      background: var(--surface-glass-strong);
       backdrop-filter: blur(24px);
-      border: 1px solid rgba(193,232,255,0.1);
-      border-radius: 24px;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-xl);
       padding: 3rem 3.5rem;
       max-width: 500px;
       width: 90%;
@@ -39,72 +46,77 @@
       flex-direction: column;
       align-items: center;
       gap: 1.25rem;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+      box-shadow: var(--shadow-lg);
     }
     .dev-badge {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 4px 12px;
-      border-radius: 9999px;
+      gap: 8px;
+      padding: 5px 12px;
+      border-radius: 3px;
+      font-family: var(--font-mono);
       font-size: 0.6875rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
+      font-weight: 500;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      background: rgba(193,232,255,0.08);
-      color: #7bc8f0;
-      border: 1px solid rgba(193,232,255,0.15);
+      background: rgba(44,92,214,0.14);
+      color: var(--accent);
+      border: 1px solid rgba(44,92,214,0.35);
     }
+    .dev-badge::before { content: ''; width: 5px; height: 5px; background: var(--accent); box-shadow: 0 0 6px var(--accent); }
     .dev-icon {
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, #2d4a50, #1a3f75);
-      border-radius: 16px;
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, var(--slate), var(--blue-700));
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-lg);
       display: flex;
       align-items: center;
       justify-content: center;
       animation: devIconPulse 3s ease-in-out infinite;
     }
     @keyframes devIconPulse {
-      0%,100% { box-shadow: 0 0 0 0 rgba(45,74,80,0.4); }
-      50%      { box-shadow: 0 0 0 12px rgba(45,74,80,0); }
+      0%,100% { box-shadow: 0 0 0 0 rgba(36,52,92,0.4); }
+      50%      { box-shadow: 0 0 0 12px rgba(36,52,92,0); }
     }
     .dev-title {
+      font-family: var(--font-display);
       font-size: 1.75rem;
-      font-weight: 300;
-      letter-spacing: -0.03em;
-      color: #eef4ff;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
     }
     .dev-sub {
       font-size: 0.9375rem;
-      color: #8faac8;
+      color: var(--text-secondary);
       line-height: 1.65;
       max-width: 340px;
     }
-    /* Progress bar */
+    /* Progress — dimension-line style */
     .progress-wrap {
       width: 100%;
-      height: 3px;
-      background: rgba(193,232,255,0.08);
+      height: 2px;
+      background: var(--border-subtle);
       border-radius: 9999px;
       overflow: hidden;
     }
     .progress-bar {
       height: 100%;
       width: 0;
-      background: linear-gradient(90deg, #1a3f75, #c1e8ff);
+      background: linear-gradient(90deg, var(--blue-700), var(--accent));
       border-radius: 9999px;
-      animation: progressFill 2.5s var(--ease-out, cubic-bezier(0.16,1,0.3,1)) forwards;
+      animation: progressFill 2.5s var(--ease-out) forwards;
     }
     @keyframes progressFill {
       from { width: 0; }
       to   { width: 65%; }
     }
     .progress-label {
-      font-size: 0.75rem;
-      color: #4a6080;
-      letter-spacing: 0.04em;
-      margin-top: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      margin-top: 8px;
       align-self: flex-start;
     }
     .back-link {
@@ -114,28 +126,25 @@
       padding: 10px 22px;
       border-radius: 9999px;
       background: transparent;
-      border: 1px solid rgba(193,232,255,0.15);
+      border: 1px solid var(--border-medium);
       font-size: 0.875rem;
       font-weight: 500;
-      color: #8faac8;
+      color: var(--text-secondary);
       text-decoration: none;
       transition: border-color 0.2s, color 0.2s;
       margin-top: 0.5rem;
     }
-    .back-link:hover { border-color: rgba(193,232,255,0.35); color: #eef4ff; }
+    .back-link:hover { border-color: var(--border-bright); color: var(--text-primary); }
   </style>
 </head>
 <body>
   <div class="dev-bg" aria-hidden="true"></div>
 
   <div class="dev-card">
-    <span class="dev-badge">
-      <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>
-      In Development
-    </span>
+    <span class="dev-badge">In development</span>
     <div class="dev-icon">
-      <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
-        <path d="M7 9l-4 4 4 4M19 9l4 4-4 4M14 5l-2 16" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      <svg width="24" height="24" viewBox="0 0 26 26" fill="none">
+        <path d="M7 9l-4 4 4 4M19 9l4 4-4 4M14 5l-2 16" stroke="#eaf7ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </div>
     <h1 class="dev-title">Feature in progress.</h1>

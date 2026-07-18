@@ -3,38 +3,38 @@
    Uses same CSS variables as style.css (deep navy palette)
    ══════════════════════════════════════════════════════════ */
 
-/* ─── Atmosphere ────────────────────────────────────────── */
-.atmo { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
-.atmo-orb { position: absolute; border-radius: 50%; filter: blur(80px); }
-.orb-1 {
-  width: 600px; height: 600px; top: -200px; left: -150px;
-  background: radial-gradient(circle, rgba(26,63,117,0.28) 0%, transparent 70%);
-  animation: orbD1 20s ease-in-out infinite alternate;
+/* ─── Atmosphere: hairline drafting grid ────────────────── */
+.atmo {
+  position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden;
+  background-color: var(--surface-0);
+  background-image:
+    linear-gradient(rgba(127,217,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(127,217,255,0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
 }
-.orb-2 {
-  width: 500px; height: 500px; bottom: -100px; right: -100px;
-  background: radial-gradient(circle, rgba(45,74,80,0.2) 0%, transparent 70%);
-  animation: orbD2 17s ease-in-out infinite alternate;
+.atmo::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 55% 40% at 10% 0%, rgba(44,92,214,0.22) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 95% 90%, rgba(20,51,122,0.22) 0%, transparent 60%);
 }
-.orb-3 {
-  width: 400px; height: 400px; top: 40%; left: 50%;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(59,130,212,0.08) 0%, transparent 70%);
-  animation: orbD3 14s ease-in-out infinite alternate;
+.atmo-orb { display: none; }
+
+.nav-back {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 0.8125rem; font-weight: 500; color: var(--text-muted);
+  padding: 8px 12px; border-radius: var(--radius-md);
+  transition: color 0.2s, background 0.2s;
 }
-@keyframes orbD1 { from { transform: translate(0,0); } to { transform: translate(40px,30px); } }
-@keyframes orbD2 { from { transform: translate(0,0); } to { transform: translate(-30px,-20px); } }
-@keyframes orbD3 {
-  from { transform: translate(-50%,-50%) scale(1); }
-  to   { transform: translate(-50%,-50%) scale(1.15); }
-}
+.nav-back:hover { color: var(--text-primary); background: rgba(255,255,255,0.05); }
 
 /* ─── Stepper ───────────────────────────────────────────── */
 
 .stepper-wrap {
   position: fixed; top: 64px; left: 0; right: 0; z-index: 90;
   padding: 12px 32px;
-  background: rgba(0,0,30,0.75);
+  background: rgba(6,14,33,0.75);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-bottom: 1px solid var(--border-subtle);
@@ -60,7 +60,7 @@
   background: linear-gradient(135deg, var(--blue-500), var(--blue-700));
   border-color: transparent;
   color: #fff;
-  box-shadow: 0 0 16px rgba(59,130,212,0.45);
+  box-shadow: 0 0 16px rgba(44,92,214,0.45);
 }
 .step-node.done .step-node-dot {
   background: var(--surface-3);
@@ -125,8 +125,9 @@
 }
 .pane-head { padding: 22px 0 18px; }
 .pane-title {
-  font-size: 1.375rem; font-weight: 500;
-  letter-spacing: -0.025em; color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: 1.375rem; font-weight: 600;
+  letter-spacing: -0.02em; color: var(--text-primary);
 }
 .pane-sub { font-size: 0.875rem; color: var(--text-secondary); margin-top: 4px; }
 
@@ -155,9 +156,9 @@
 }
 .type-card.active {
   border-color: var(--blue-400);
-  background: rgba(59,130,212,0.12);
+  background: rgba(44,92,214,0.12);
   color: var(--accent);
-  box-shadow: 0 0 20px rgba(59,130,212,0.18);
+  box-shadow: 0 0 20px rgba(44,92,214,0.18);
 }
 .tc-icon {
   width: 40px; height: 40px;
@@ -169,8 +170,8 @@
 }
 .tc-icon svg { width: 20px; height: 20px; }
 .type-card.active .tc-icon {
-  background: rgba(59,130,212,0.18);
-  border-color: rgba(59,130,212,0.25);
+  background: rgba(44,92,214,0.18);
+  border-color: rgba(44,92,214,0.25);
 }
 .tc-name { font-size: 0.8125rem; font-weight: 600; }
 .tc-sub { font-size: 0.6875rem; color: var(--text-muted); margin-top: -2px; }
@@ -196,7 +197,7 @@
 .cf-input:focus {
   border-color: var(--blue-400);
   background: rgba(255,255,255,0.06);
-  box-shadow: 0 0 0 3px rgba(59,130,212,0.18);
+  box-shadow: 0 0 0 3px rgba(44,92,214,0.18);
 }
 .cf-input::placeholder { color: var(--text-muted); }
 .cf-textarea { resize: vertical; min-height: 86px; line-height: 1.55; }
@@ -266,7 +267,7 @@
 .dot-o.active, .eye-o.active {
   border-color: var(--blue-400);
   color: var(--accent);
-  background: rgba(59,130,212,0.1);
+  background: rgba(44,92,214,0.1);
 }
 
 /* ─── Toggle Switch ─────────────────────────────────────── */
@@ -361,7 +362,7 @@
 .frame-o:hover { border-color: var(--border-bright); color: var(--text-primary); }
 .frame-o.active {
   border-color: var(--blue-400); color: var(--accent);
-  background: rgba(59,130,212,0.1);
+  background: rgba(44,92,214,0.1);
 }
 
 /* ─── Sliders ───────────────────────────────────────────── */
@@ -416,7 +417,7 @@
   color: var(--text-muted);
 }
 .ec-btn:hover { border-color: var(--border-bright); color: var(--text-primary); }
-.ec-btn.active { border-color: var(--blue-400); color: var(--accent); background: rgba(59,130,212,0.1); }
+.ec-btn.active { border-color: var(--blue-400); color: var(--accent); background: rgba(44,92,214,0.1); }
 .ec-btn.active span { color: var(--accent-dim); }
 
 /* ─── Logo Drop ─────────────────────────────────────────── */
@@ -460,7 +461,7 @@
   transition: all 0.18s var(--ease-out); cursor: pointer; text-align: center;
 }
 .sc-btn:hover { border-color: var(--border-bright); color: var(--text-primary); }
-.sc-btn.active { border-color: var(--blue-400); color: var(--accent); background: rgba(59,130,212,0.1); }
+.sc-btn.active { border-color: var(--blue-400); color: var(--accent); background: rgba(44,92,214,0.1); }
 .dl-name-input {
   width: 100%; padding: 11px 14px;
   background: rgba(255,255,255,0.04);
@@ -491,7 +492,7 @@
   color: var(--accent-bright);
   box-shadow: var(--shadow-glow);
 }
-.dl-btn-png:hover { box-shadow: 0 0 36px rgba(59,130,212,0.45); transform: translateY(-1px); }
+.dl-btn-png:hover { box-shadow: 0 0 36px rgba(44,92,214,0.45); transform: translateY(-1px); }
 .dl-btn-svg {
   background: rgba(255,255,255,0.05);
   border: 1.5px solid var(--border-bright);
@@ -507,8 +508,8 @@
 .dl-toast {
   display: none; align-items: center; gap: 8px;
   padding: 12px 16px;
-  background: rgba(37,99,176,0.2);
-  border: 1px solid rgba(59,130,212,0.3);
+  background: rgba(28,70,163,0.2);
+  border: 1px solid rgba(44,92,214,0.3);
   border-radius: 10px; font-size: 0.875rem;
   color: var(--accent-dim);
   animation: toastIn 0.3s var(--ease-out);
@@ -535,7 +536,7 @@
   cursor: pointer; box-shadow: var(--shadow-glow);
   transition: all 0.2s var(--ease-out);
 }
-.btn-continue:hover { box-shadow: 0 0 36px rgba(59,130,212,0.45); transform: translateY(-1px); }
+.btn-continue:hover { box-shadow: 0 0 36px rgba(44,92,214,0.45); transform: translateY(-1px); }
 .btn-continue:active { transform: scale(0.97); }
 .btn-back {
   display: flex; align-items: center; gap: 8px;
@@ -583,7 +584,7 @@
 }
 .ctx-preview::before {
   content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 50% 0%, rgba(59,130,212,0.07) 0%, transparent 60%);
+  background: radial-gradient(ellipse at 50% 0%, rgba(44,92,214,0.07) 0%, transparent 60%);
   pointer-events: none;
 }
 
@@ -607,7 +608,7 @@
 }
 .qr-panel::before {
   content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 50% 0%, rgba(59,130,212,0.07) 0%, transparent 60%);
+  background: radial-gradient(ellipse at 50% 0%, rgba(44,92,214,0.07) 0%, transparent 60%);
   pointer-events: none;
 }
 /* Dimmed on steps 1 & 2 */
@@ -629,14 +630,15 @@
   width: 100%; display: flex; align-items: center; justify-content: space-between;
 }
 .qr-panel-label {
-  font-size: 0.6875rem; font-weight: 700;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem; font-weight: 500;
   letter-spacing: 0.08em; text-transform: uppercase;
   color: var(--text-secondary);
 }
 .qr-type-chip {
   padding: 4px 10px; border-radius: 99px;
-  background: rgba(59,130,212,0.15);
-  border: 1px solid rgba(59,130,212,0.25);
+  background: rgba(44,92,214,0.15);
+  border: 1px solid rgba(44,92,214,0.25);
   font-size: 0.6875rem; font-weight: 600;
   color: var(--accent-dim); letter-spacing: 0.04em;
 }
@@ -654,9 +656,9 @@
 .preview-shimmer {
   position: absolute; inset: 0; border-radius: inherit;
   background: linear-gradient(135deg,
-    rgba(59,130,212,0.06) 0%,
+    rgba(44,92,214,0.06) 0%,
     rgba(193,232,255,0.04) 50%,
-    rgba(59,130,212,0.06) 100%);
+    rgba(44,92,214,0.06) 100%);
   background-size: 200% 200%;
   animation: shimmerPulse 2.5s ease-in-out infinite;
   opacity: 0; pointer-events: none;
@@ -677,7 +679,8 @@
 
 /* ─── Context Preview Internals ─────────────────────────── */
 .ctx-label {
-  font-size: 0.6875rem; font-weight: 700;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem; font-weight: 500;
   letter-spacing: 0.08em; text-transform: uppercase;
   color: var(--text-secondary);
   align-self: flex-start;
@@ -725,7 +728,7 @@
 .wifi-icon-row { display: flex; align-items: center; gap: 10px; }
 .wifi-icon-bg {
   width: 36px; height: 36px; border-radius: 8px;
-  background: rgba(26,63,117,0.1);
+  background: rgba(20,51,122,0.1);
   display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
 .wifi-name { font-size: 0.875rem; font-weight: 600; color: #1d1d1f; }
@@ -761,7 +764,7 @@
 .vcard-row { display: flex; align-items: center; gap: 8px; }
 .vcard-row-icon {
   width: 22px; height: 22px; border-radius: 5px;
-  background: rgba(26,63,117,0.08);
+  background: rgba(20,51,122,0.08);
   display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
 .vcard-row-val { font-size: 0.6875rem; color: #3c3c43; }
@@ -797,7 +800,7 @@
 }
 .msg-card-icon {
   width: 44px; height: 44px; border-radius: 12px;
-  background: rgba(26,63,117,0.08);
+  background: rgba(20,51,122,0.08);
   display: flex; align-items: center; justify-content: center;
 }
 .msg-card-title { font-size: 0.875rem; font-weight: 600; color: #1d1d1f; }

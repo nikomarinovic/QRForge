@@ -178,13 +178,13 @@ function initHeroQR() {
   if (heroCanvas) {
     drawStyledQR(heroCanvas.getContext('2d') ? heroCanvas : heroCanvas, heroCanvas.width, texts[0], {
       gradient: true,
-      color1: '#3b82d4',
-      color2: '#c1e8ff',
+      color1: '#4d7bf0',
+      color2: '#7fd9ff',
       style: 'rounded',
-      bg: 'rgba(4,13,46,0.97)',
+      bg: 'rgba(10,23,48,0.97)',
     });
     heroCanvas.__drawFn = (text) => drawStyledQR(heroCanvas, heroCanvas.width, text, {
-      gradient: true, color1: '#3b82d4', color2: '#c1e8ff', style: 'rounded', bg: 'rgba(4,13,46,0.97)',
+      gradient: true, color1: '#4d7bf0', color2: '#7fd9ff', style: 'rounded', bg: 'rgba(10,23,48,0.97)',
     });
 
     // Cycle through demo texts
@@ -198,10 +198,10 @@ function initHeroQR() {
   if (ctaCanvas) {
     drawStyledQR(ctaCanvas, ctaCanvas.width, 'https://github.com/nikomarinovic', {
       gradient: true,
-      color1: '#1a3f75',
-      color2: '#7bc8f0',
+      color1: '#14337a',
+      color2: '#7fd9ff',
       style: 'circle',
-      bg: 'rgba(4,13,46,0.97)',
+      bg: 'rgba(10,23,48,0.97)',
     });
   }
 }

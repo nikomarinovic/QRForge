@@ -18,10 +18,10 @@ const S = {
   eyeStyle:  'square',
 
   useGradient: false,
-  dotColor:    '#1a3f75',
+  dotColor:    '#14337a',
   bgColor:     '#ffffff',
-  gradColor1:  '#1a3f75',
-  gradColor2:  '#2563b0',
+  gradColor1:  '#14337a',
+  gradColor2:  '#2c5cd6',
   gradDir:     'diagonal',
   bgGrad:      '#ffffff',
   transBg:     false,
@@ -323,7 +323,7 @@ function renderContextPreview() {
         <div class="wifi-card">
           <div class="wifi-icon-row">
             <div class="wifi-icon-bg">
-              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M2 7.5C5.6 4.2 9 3 11 3s5.4 1.2 9 4.5" stroke="#1a3f75" stroke-width="1.6" stroke-linecap="round"/><path d="M5 11c1.7-1.7 3.7-2.5 6-2.5s4.3.8 6 2.5" stroke="#1a3f75" stroke-width="1.6" stroke-linecap="round"/><path d="M8 14.5c.8-.8 1.8-1.3 3-1.3s2.2.5 3 1.3" stroke="#1a3f75" stroke-width="1.6" stroke-linecap="round"/><circle cx="11" cy="18" r="1.2" fill="#1a3f75"/></svg>
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M2 7.5C5.6 4.2 9 3 11 3s5.4 1.2 9 4.5" stroke="#14337a" stroke-width="1.6" stroke-linecap="round"/><path d="M5 11c1.7-1.7 3.7-2.5 6-2.5s4.3.8 6 2.5" stroke="#14337a" stroke-width="1.6" stroke-linecap="round"/><path d="M8 14.5c.8-.8 1.8-1.3 3-1.3s2.2.5 3 1.3" stroke="#14337a" stroke-width="1.6" stroke-linecap="round"/><circle cx="11" cy="18" r="1.2" fill="#14337a"/></svg>
             </div>
             <div><div class="wifi-name">${escHtml(ssid)}</div><div class="wifi-sub">${enc} Network</div></div>
           </div>
@@ -352,8 +352,8 @@ function renderContextPreview() {
             </div>
           </div>
           <div class="vcard-body">
-            ${phone ? `<div class="vcard-row"><div class="vcard-row-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 2h3l1 3-1.5 1.5a9 9 0 004 4L11 9l3 1v3a1 1 0 01-1 1C6.5 14 0 7.5 0 1a1 1 0 011-1h3" stroke="#1a3f75" stroke-width="1.2" fill="none"/></svg></div><span class="vcard-row-val">${escHtml(phone)}</span></div>` : ''}
-            ${email ? `<div class="vcard-row"><div class="vcard-row-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="3" width="12" height="8" rx="1" stroke="#1a3f75" stroke-width="1.2"/><path d="M1 5l6 3.5L13 5" stroke="#1a3f75" stroke-width="1.2" stroke-linecap="round"/></svg></div><span class="vcard-row-val">${escHtml(email)}</span></div>` : ''}
+            ${phone ? `<div class="vcard-row"><div class="vcard-row-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 2h3l1 3-1.5 1.5a9 9 0 004 4L11 9l3 1v3a1 1 0 01-1 1C6.5 14 0 7.5 0 1a1 1 0 011-1h3" stroke="#14337a" stroke-width="1.2" fill="none"/></svg></div><span class="vcard-row-val">${escHtml(phone)}</span></div>` : ''}
+            ${email ? `<div class="vcard-row"><div class="vcard-row-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="3" width="12" height="8" rx="1" stroke="#14337a" stroke-width="1.2"/><path d="M1 5l6 3.5L13 5" stroke="#14337a" stroke-width="1.2" stroke-linecap="round"/></svg></div><span class="vcard-row-val">${escHtml(email)}</span></div>` : ''}
             ${!phone && !email ? '<div class="vcard-row" style="color:#aeaeb2;font-size:0.8rem">Fill in contact details to preview</div>' : ''}
           </div>
         </div>`;
@@ -383,7 +383,7 @@ function renderContextPreview() {
       html = `
         <span class="ctx-label">Preview — Email Compose</span>
         <div class="msg-card">
-          <div class="msg-card-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="2" y="5" width="18" height="13" rx="2" stroke="#1a3f75" stroke-width="1.5"/><path d="M2 8l9 5.5L20 8" stroke="#1a3f75" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          <div class="msg-card-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="2" y="5" width="18" height="13" rx="2" stroke="#14337a" stroke-width="1.5"/><path d="M2 8l9 5.5L20 8" stroke="#14337a" stroke-width="1.5" stroke-linecap="round"/></svg></div>
           <div class="msg-card-title">New Email</div>
           <div class="msg-card-sub">To: <strong>${escHtml(to)}</strong><br/>Subject: ${escHtml(subject)}</div>
           <div class="msg-card-btn">Open Mail App</div>
@@ -395,7 +395,7 @@ function renderContextPreview() {
       html = `
         <span class="ctx-label">Preview — Phone Dial</span>
         <div class="msg-card">
-          <div class="msg-card-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 3h4l2 5-2 2a14 14 0 006 6l2-2 5 2v4a2 2 0 01-2 2C10 22 0 12 0 2a2 2 0 012-2h2" stroke="#1a3f75" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          <div class="msg-card-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 3h4l2 5-2 2a14 14 0 006 6l2-2 5 2v4a2 2 0 01-2 2C10 22 0 12 0 2a2 2 0 012-2h2" stroke="#14337a" stroke-width="1.5" stroke-linecap="round"/></svg></div>
           <div class="msg-card-title">Call</div>
           <div class="msg-card-sub" style="font-size:1.1rem;font-weight:600;color:#1d1d1f;font-family:var(--mono)">${escHtml(num)}</div>
           <div class="msg-card-btn">Dial Number</div>
@@ -408,7 +408,7 @@ function renderContextPreview() {
       html = `
         <span class="ctx-label">Preview — SMS Message</span>
         <div class="msg-card">
-          <div class="msg-card-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 5a2 2 0 012-2h12a2 2 0 012 2v9a2 2 0 01-2 2H7l-4 3V5z" stroke="#1a3f75" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+          <div class="msg-card-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 5a2 2 0 012-2h12a2 2 0 012 2v9a2 2 0 01-2 2H7l-4 3V5z" stroke="#14337a" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
           <div class="msg-card-title">Text Message</div>
           <div class="msg-card-sub">To: <strong>${escHtml(phone)}</strong><br/>"${escHtml(msg.substring(0,60))}${msg.length>60?'…':''}"</div>
           <div class="msg-card-btn">Open Messages</div>
@@ -420,7 +420,7 @@ function renderContextPreview() {
       html = `
         <span class="ctx-label">Preview — Plain Text</span>
         <div class="msg-card">
-          <div class="msg-card-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 6h14M4 10h14M4 14h8" stroke="#1a3f75" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          <div class="msg-card-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 6h14M4 10h14M4 14h8" stroke="#14337a" stroke-width="1.5" stroke-linecap="round"/></svg></div>
           <div class="msg-card-title">Text Content</div>
           <div class="msg-card-sub" style="font-size:0.875rem;line-height:1.55">${escHtml(txt.substring(0,120))}${txt.length>120?'…':''}</div>
         </div>`;
